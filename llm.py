@@ -9,10 +9,9 @@ if not GEMINI_API_KEY:
     raise ValueError("API key missing! Add GEMINI_API_KEY in .env")
 
 genai.configure(api_key=GEMINI_API_KEY)
-model = genai.GenerativeModel("gemini-1.5-flash")
+model = genai.GenerativeModel("gemini-2.5-flash")
 
-
-def ask_openai(prompt: str) -> str:  # naam same rakha taake main.py na badlna pade
+def ask_openai(prompt: str) -> str: 
     try:
         response = model.generate_content(prompt)
         return response.text
