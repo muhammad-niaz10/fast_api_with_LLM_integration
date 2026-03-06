@@ -113,6 +113,6 @@ class LLMResponse(BaseModel):
 
 @app.post("/ask-llm", response_model=LLMResponse)
 def ask_llm_endpoint(data: LLMRequest, current_user=Depends(get_current_user)):
-    # current_user JWT se validate ho chuka hai
     result = ask_openai(data.prompt)
+
     return {"response": result}
